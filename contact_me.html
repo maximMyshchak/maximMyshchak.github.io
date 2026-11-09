@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<!--- In this website, I made it accessible by adding tabindexes which I learned from my previous SWE internship on Accessibility design :)-->
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Maxim Myshchak's Website</title>
+        <script type="text/javascript"
+                src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js">
+        </script>
+        <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "oJ-U0Iy2Tv6FI2cw-",
+            });
+        })();
+        </script>
+    <script>
+        addEventListener("DOMContentLoaded", short_response_run)
+            function short_response_run()
+            {
+                const submitButton = document.querySelector("#submitButton");
+                submitButton.addEventListener("click", sendMessage)
+                //I used "async" as there was an error message in my console that said that I need an async function
+                async function sendMessage()
+                {
+                    var name = document.querySelector("#name").value;
+                    var email = document.querySelector("#email").value;
+                    var message = document.querySelector("#message").value;
+                    const templateParams = {
+                        'name': name,
+                        'message': message,
+                        'email': email,
+                    }
+                    try {
+                        await emailjs.send('primary_service', 'template_ymz7rfz', templateParams);
+                    }
+                    catch(error){
+                        console.error("Error sending email", error);
+                    }
+                    document.querySelector("#name").value = "";
+                    document.querySelector("#email").value = "";
+                    document.querySelector("#message").value = "";
+                }
+            }
+    </script>
+    </head>
+    <body>
+        <!--Header-->
+        <header tabindex="0" class="header">
+            <a tabindex="0" class="header-left" href="index.html"><strong>Maxim Myshchak's Website</strong></a>
+            <div class = "header-nav-bar">
+                <a tabindex="0" href="index.html">About</a>
+                <a tabindex="0" href="portfolio.html">Porfolio</a>
+                <a tabindex="0" href="resume.html">Resume</a>
+                <a tabindex="0" href="contact_me.html">Contact Me</a>
+            </div>
+        </header>
+        <!--Contact Information-->
+        <div class="contact">
+            <h1 tabindex="0">Contact Maxim Myshchak</h1>
+            <div class="padd">
+                <p tabindex="0">Name: </p>
+                <input id="name" placeholder="John Doe" class="p-2">
+            </div>
+            <div class="padd">
+                <p tabindex="0">Email Address: </p>
+                <input id="email" placeholder="John_Doe@gmail.com" class="p-2">
+            </div>
+            <div class="padd">
+                <p tabindex="0">Message: </p>
+                <input id="message" placeholder="This is my message" class="p-2">
+            </div>
+            <button id="submitButton">Send Message</button>
+        </div>
+
+        <!--Footer-->
+        <footer class="footer">
+            <h2 tabindex="0" class="footer-name">Maxim Myshchak</h2>
+            <p><small tabindex="0">Thank you for visiting my website!</small></p>
+        </footer>
+    </body>
+</html>

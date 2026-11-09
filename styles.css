@@ -1,0 +1,72 @@
+.header{
+    background-color: #477bff;
+    color: #fff;
+    margin-bottom: 2rem;
+    padding: 2rem 0rem;
+    font-family: "Times New Roman";
+}
+.header-left{
+    text-align: left;
+    font-size: 2rem;
+    padding:0rem 0rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Office hours suggested me to use .header a{} to remove automatic attributions that are made as a result of the <a> html tag*/
+.header a{
+    background-color: #477bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 1rem;
+    font-family: "Times New Roman";
+}
+
+.header-nav-bar{
+    text-align: right;
+    font-family: "Times New Roman";
+    font-size: 1.5rem;
+    padding: 0rem 0rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.resume{
+    background-color: white;
+    text-align: center;
+    font-family: "Times New Roman";
+
+}
+
+.footer{
+    font-family: "Times New Roman";
+    background-color: #c29723;
+    padding: 2rem 2rem;
+    color: black;
+    text-align:center;
+    color: white;
+    margin-top:5rem;
+}
+
+.footer-name{
+    font-size: 4rem;
+}
+
+.intro-text{
+    font-size: 2rem;
+    font-family: "Times New Roman";
+}
+
+.contact{
+    padding: 2rem 2rem;
+}
+
+.overflow{
+    overflow-wrap: break-word;
+}
+
+.padd{
+    padding: 1rem 0rem;
+}

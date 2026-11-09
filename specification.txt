@@ -1,0 +1,32 @@
+10 HTML Tags:
+<head>
+<body>
+<header>
+<footer>
+<a>
+<div>
+<p>
+<strong>
+<small>
+<h2>
+<iframe>
+<img>
+<ul>
+<li>
+
+5 CSS Properties:
+background-color
+margin-bottom
+padding
+font-size
+text-align
+color
+text-decoration
+font-family
+
+How I used Javascript:
+I used Javascript in the contact_me.html file to "talk" with and leverage EmailJS (an emailing service that I use to enable the contact form to send me a user's response to my email and emails them a confirmation email back). I use javascript to save the text from various html input files and then if the submit button is clicked, then the javascript will call the EmailJS to send the emails and messages.
+
+How I used Bootstrap:
+I used Bootstrap's Clearfix class. In my About section, I incorporated a clear floated content (my headshot photo) within a container by adding a "clearfix utility" (this allows my floating image to work).
+I also incoprorated various Bootstrap classes into my picture: img-fluid, rounded, float-start, me-3, mb-2. Img-fluid makes the image responsive when the screen changes. Rounded rounds the curves of my image. Float-start floats the image to the left, allowing my text to wrap around my image. Me-# and mb-# adds space to the right and bottom of the image respectivly
