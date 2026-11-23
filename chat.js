@@ -3,10 +3,11 @@
 // which adds the key and calls OpenAI.
 
 (function () {
-    // When the site is served by Flask, the API is on the same origin, so this stays "".
-    // If the pages are hosted on GitHub Pages and Flask runs elsewhere (e.g. Render),
-    // set this to that server's URL, e.g. "https://maxim-chat.onrender.com".
-    const API_BASE = "";
+    // On the live GitHub Pages site, questions go to the Cloudflare Worker (the chat-worker folder).
+    // Anywhere else, such as running app.py on your own computer, the Flask server answers instead.
+    const API_BASE = location.hostname === "maximmyshchak.github.io"
+        ? "https://maxim-chat.maximmyshchak.workers.dev"
+        : "";
     const MAX_LENGTH = 1000;
 
     const history = []; // [{role: "user" | "assistant", content: "..."}]
