@@ -1,25 +1,99 @@
+/* Colors were adjusted to meet WCAG AA contrast (4.5:1 for normal text):
+   the old blue #477bff with white text was 3.8:1, and white text on the gold footer was 2.7:1. */
+:root{
+    --brand-blue: #2a62e0;      /* white text on this = 5.4:1 */
+    --brand-blue-dark: #1d4bb5; /* hover state; white text on this = 7.6:1 */
+    --brand-gold: #c29723;      /* near-black text on this = 7.7:1 */
+    --focus-ring: #ffbf47;
+}
+
+/* WCAG 2.4.11 (Focus Not Obscured): when tabbing scrolls the page, keep the focused element
+   clear of the fixed "Ask about Max" button in the bottom corner */
+html{
+    scroll-padding-bottom: 6rem;
+}
+
+/* Lets keyboard users jump past the navigation; hidden until it receives focus */
+.skip-link{
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 2000;
+    background-color: #000;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+}
+.skip-link:focus{
+    top: 1rem;
+}
+
+/* A clearly visible focus indicator for every focusable element (links, buttons, fields, the chat log...) */
+:focus-visible{
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px #000;
+}
+
+/* <main> only receives focus from the skip link, so it doesn't need a ring */
+main:focus,
+main:focus-visible{
+    outline: none;
+    box-shadow: none;
+}
+
+/* Links in page content use the brand blue (5.4:1 on white) instead of Bootstrap's borderline #0d6efd */
+main a{
+    color: var(--brand-blue);
+    text-underline-offset: 0.15em;
+}
+main a:hover{
+    color: var(--brand-blue-dark);
+    text-decoration-thickness: 2px;
+}
+
+/* Header: site name on the left, navigation on the right; wraps onto two lines on narrow screens */
 .header{
-    background-color: #477bff;
+    background-color: var(--brand-blue);
     color: #fff;
     margin-bottom: 2rem;
-    padding: 2rem 0rem;
+    padding: 1.25rem 1rem;
     font-family: "Times New Roman";
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
 }
 .header-left{
     text-align: left;
-    font-size: 2rem;
-    padding:0rem 0rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     display: flex;
     flex-wrap: wrap;
 }
 
 /* Office hours suggested me to use .header a{} to remove automatic attributions that are made as a result of the <a> html tag*/
 .header a{
-    background-color: #477bff;
+    background-color: var(--brand-blue);
     color: #fff;
     text-decoration: none;
-    padding: 1rem 1rem;
+    padding: 0.5rem 0.75rem;   /* keeps every link at least 24x24px (WCAG 2.5.8 Target Size) */
+    border-radius: 0.25rem;
     font-family: "Times New Roman";
+}
+
+.header-left:hover,
+.header-nav-bar a:hover{
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+}
+
+/* Marks the page the visitor is currently on (paired with aria-current="page" for screen readers) */
+.header-nav-bar a[aria-current="page"]{
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.3em;
 }
 
 .header-nav-bar{
@@ -31,36 +105,175 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+    gap: 0.25rem;
+}
+
+/* Keep page content at a comfortable reading width, centered on wide screens */
+main{
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}
+
+.page-title{
+    font-family: "Times New Roman";
+    padding: 0 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .resume{
     background-color: white;
     text-align: center;
     font-family: "Times New Roman";
+}
 
+.resume iframe{
+    width: 100%;
+    height: min(900px, 80vh);
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
 }
 
 .footer{
     font-family: "Times New Roman";
-    background-color: #c29723;
-    padding: 2rem 2rem;
-    color: black;
+    background-color: var(--brand-gold);
+    /* extra bottom padding so the floating chat button never sits on top of the footer text */
+    padding: 2rem 2rem 5.5rem;
+    color: #1a1a1a;
     text-align:center;
-    color: white;
     margin-top:5rem;
 }
 
 .footer-name{
-    font-size: 4rem;
+    font-size: clamp(2.25rem, 8vw, 4rem);   /* shrinks on phones so it never causes sideways scrolling */
+    line-height: 1.1;
+}
+
+/* About page */
+.headshot{
+    width: 100%;
+    max-width: 330px;
 }
 
 .intro-text{
-    font-size: 2rem;
+    font-size: 1.3rem;
+    line-height: 1.6;
     font-family: "Times New Roman";
 }
 
 .contact{
     padding: 2rem 2rem;
+    max-width: 40rem;
+}
+
+.contact label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+/* Red asterisk on required fields: #b00020 on white = 7.0:1 contrast */
+.required-mark{
+    color: #b00020;
+    font-weight: bold;
+}
+
+.contact input,
+.contact textarea{
+    width: 100%;
+    border: 2px solid #555;
+    border-radius: 0.25rem;
+}
+
+.contact button{
+    background-color: var(--brand-blue);
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.1rem;
+}
+
+.contact button:hover:not(:disabled){
+    background-color: var(--brand-blue-dark);
+}
+
+.contact button:disabled{
+    opacity: 0.7;
+}
+
+/* Suggestions and errors shown under a form field */
+.field-hint{
+    margin: 0.4rem 0 0;
+    font-size: 1rem;
+}
+.field-hint:empty{
+    display: none;
+}
+.field-hint.error{
+    color: #b00020;             /* 7.0:1 on white, same red as the required asterisk */
+    font-weight: bold;
+}
+
+/* "Yes, use ..." button: styled like a link, at least 24px tall (WCAG 2.5.8).
+   Prefixed with .contact so it overrides the blue ".contact button" style above */
+.contact .hint-button{
+    background: none;
+    border: none;
+    padding: 0.25rem 0.25rem;
+    min-height: 24px;
+    color: var(--brand-blue);
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 1rem;
+}
+.contact .hint-button:hover:not(:disabled){
+    background: none;
+    color: var(--brand-blue-dark);
+}
+
+.form-status{
+    margin-top: 1rem;
+    font-weight: bold;
+}
+.form-status.success{ color: #1e6b2e; }
+.form-status.error{ color: #b00020; }
+
+/* Portfolio: an even grid of photo cards that drops to one column on phones */
+.portfolio-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
+    margin: 0;
+}
+
+.portfolio-grid figure{
+    height: 100%;
+    margin: 0;
+    padding: 0.75rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-grid img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+
+.portfolio-grid figcaption{
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+.section{
+    padding: 0 1rem;
 }
 
 .overflow{
@@ -69,4 +282,35 @@
 
 .padd{
     padding: 1rem 0rem;
+}
+
+/* Phones: stack the header, and stop the headshot floating so the text isn't squeezed into a thin column */
+@media (max-width: 576px){
+    .header{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-nav-bar{
+        justify-content: flex-start;
+        font-size: 1.25rem;
+    }
+    .headshot{
+        float: none !important;      /* overrides Bootstrap's float-start, which uses !important */
+        display: block;
+        margin: 0 auto 1.5rem !important;
+    }
+    .intro-text{
+        font-size: 1.15rem;
+    }
+    .contact{
+        padding: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    *{
+        transition: none !important;
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
 }

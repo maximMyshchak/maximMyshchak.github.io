@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<!--- In this website, I made it accessible by adding tabindexes which I learned from my previous SWE internship on Accessibility design :)-->
+<!--- Accessibility: this site uses landmarks (header/nav/main/footer), a skip link, visible focus styles,
+      aria-current for the active page, and WCAG AA color contrast, building on what I learned from my previous SWE internship on Accessibility design :)-->
 
 <html lang="en">
     <head>
@@ -9,31 +10,51 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <link href="styles.css" rel="stylesheet">
-        <title>Maxim Myshchak's Website</title>
+        <link href="chat.css" rel="stylesheet">
+        <script src="chat.js" defer></script>
+        <title>Portfolio | Maxim Myshchak</title>
     </head>
     <body>
+        <a class="skip-link" href="#main">Skip to main content</a>
         <!--Header-->
-        <header tabindex="0" class="header">
-            <a tabindex="0" class="header-left" href="index.html"><strong>Maxim Myshchak's Website</strong></a>
-            <div class = "header-nav-bar">
-                <a tabindex="0" href="index.html">About</a>
-                <a tabindex="0" href="portfolio.html">Porfolio</a>
-                <a tabindex="0" href="resume.html">Resume</a>
-                <a tabindex="0" href="contact_me.html">Contact Me</a>
-            </div>
+        <header class="header">
+            <a class="header-left" href="index.html"><strong>Maxim Myshchak's Website</strong></a>
+            <nav class="header-nav-bar" aria-label="Main">
+                <a href="index.html">About</a>
+                <a href="portfolio.html" aria-current="page">Portfolio</a>
+                <a href="resume.html">Resume</a>
+                <a href="contact_me.html">Contact Me</a>
+            </nav>
         </header>
-        <!--Images of Projects-->
-        <img src="image_1.JPG"  tabindex="0" alt="Arduino Project" style="max-width: 330px;">
-        <img src="image_2.jpg"  tabindex="0" alt="Arduino Project" style="max-width: 330px;">
-        <img src="image_3.JPG"  tabindex="0" alt="Drone Image" style="max-width: 330px;">
-        <p tabindex="0">These photos are from my past engineering projects. There's much more to see on my LinkedIn!</p>
+        <main id="main" tabindex="-1">
+            <h1 class="page-title">Portfolio</h1>
+            <!--Images of Projects-->
+            <p class="section">These photos are from my past engineering projects. There's much more to see on my LinkedIn!</p>
+            <ul class="portfolio-grid list-unstyled">
+                <li>
+                    <figure>
+                        <!-- TODO (Max): replace these alt texts with a specific description of what each photo shows -->
+                        <img src="image_1.JPG" alt="Arduino electronics project" loading="lazy">
+                        <figcaption>Arduino project</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="image_2.jpg" alt="A second Arduino electronics project" loading="lazy">
+                        <figcaption>Arduino project</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="image_3.JPG" alt="Drone built by Maxim" loading="lazy">
+                        <figcaption>Drone project</figcaption>
+                    </figure>
+                </li>
+            </ul>
 
-        <!--Contact Information-->
-        <h1 tabindex="0">
-            More Projects to see on Max's Social Media Accounts:
-        </h1>
-        <div>
-            <ul>
+            <!--Social Media Links-->
+            <h2 class="page-title mt-5">More projects on Max's social media accounts</h2>
+            <ul class="section">
                 <li>
                     <a href="https://www.linkedin.com/in/maxim-myshchak/">LinkedIn</a>
                 </li>
@@ -41,11 +62,11 @@
                     <a href="https://www.instagram.com/maxim_myshchak/">Instagram</a>
                 </li>
             </ul>
-        </div>
+        </main>
         <!--Footer-->
         <footer class="footer">
-            <h2 tabindex="0" class="footer-name">Maxim Myshchak</h2>
-            <p><small tabindex="0">Thank you for visiting my website!</small></p>
+            <p class="footer-name">Maxim Myshchak</p>
+            <p><small>Thank you for visiting my website!</small></p>
         </footer>
     </body>
 </html>
