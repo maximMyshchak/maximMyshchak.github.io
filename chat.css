@@ -10,6 +10,21 @@
     padding: 0.8rem 1.3rem;
     font-size: 1.05rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover: darker blue (same as the site's other buttons) and a small lift so it feels clickable */
+.chat-toggle:hover{
+    background-color: #1d4bb5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Pressed: settles back down */
+.chat-toggle:active{
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 }
 
 .chat-panel{
@@ -17,8 +32,9 @@
     right: 1.25rem;
     bottom: 5rem;
     z-index: 1050;
-    width: min(24rem, calc(100vw - 2rem));
-    max-height: min(34rem, calc(100vh - 7rem));
+    /* min() keeps the window inside the screen on small laptops and phones */
+    width: min(30rem, calc(100vw - 2rem));
+    height: min(40rem, calc(100vh - 7rem));
     display: flex;
     flex-direction: column;
     background: #fff;
@@ -27,6 +43,14 @@
     border-radius: 0.75rem;
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
     overflow: hidden;
+}
+
+/* Large monitors: a bit roomier still */
+@media (min-width: 1600px) and (min-height: 900px){
+    .chat-panel{
+        width: 34rem;
+        height: 46rem;
+    }
 }
 
 .chat-panel[hidden]{
@@ -54,6 +78,17 @@
     font-size: 1.6rem;
     line-height: 1;
     padding: 0.2rem 0.5rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.chat-close:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.chat-close:active{
+    background-color: rgba(255, 255, 255, 0.35);
 }
 
 .chat-note{
@@ -120,8 +155,19 @@
     border: none;
     border-radius: 0.4rem;
     padding: 0 1rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.chat-form button:hover:not(:disabled){
+    background-color: #1d4bb5;
+}
+
+.chat-form button:active:not(:disabled){
+    background-color: #163a8c;
 }
 
 .chat-form button:disabled{
     opacity: 0.6;
+    cursor: not-allowed;
 }
