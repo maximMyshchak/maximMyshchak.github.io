@@ -25,6 +25,19 @@
         })();
         </script>
     <script>
+        // reCAPTCHA v2 ("I'm not a robot" checkbox) site key, from https://www.google.com/recaptcha/admin
+        // The matching SECRET key goes in EmailJS: Email Templates > your template > Settings > "Enable reCAPTCHA V2 verification"
+        const RECAPTCHA_SITE_KEY = "6LdgjzAuAAAAAFKgknZFxoEIpb_1UBYu6qCv1kw3";
+        let recaptchaWidgetId = null;
+
+        // Called by the reCAPTCHA script once it has loaded (see the ?onload= parameter on the script tag below)
+        function onRecaptchaLoad()
+        {
+            recaptchaWidgetId = grecaptcha.render("recaptcha", {
+                sitekey: RECAPTCHA_SITE_KEY,
+            });
+        }
+
         addEventListener("DOMContentLoaded", short_response_run)
             function short_response_run()
             {
@@ -39,10 +52,23 @@
                 async function sendMessage(event)
                 {
                     event.preventDefault();
+
+                    // Make sure the reCAPTCHA checkbox was completed before sending anything
+                    const recaptchaToken = (window.grecaptcha && recaptchaWidgetId !== null)
+                        ? grecaptcha.getResponse(recaptchaWidgetId)
+                        : "";
+                    if (!recaptchaToken) {
+                        status.className = "form-status error";
+                        status.textContent = "Please check the \"I'm not a robot\" box before sending.";
+                        return;
+                    }
+
                     const templateParams = {
                         'name': document.querySelector("#name").value,
                         'message': document.querySelector("#message").value,
                         'email': document.querySelector("#email").value,
+                        // EmailJS checks this token with Google before it sends the email
+                        'g-recaptcha-response': recaptchaToken,
                     }
 
                     submitButton.disabled = true;
@@ -63,6 +89,8 @@
                         status.textContent = "Sorry, your message could not be sent. Please try again, or email maxim_myshchak[at]college.harvard.edu.";
                     }
                     finally {
+                        // Each reCAPTCHA token can only be used once, so reset the checkbox for the next message
+                        grecaptcha.reset(recaptchaWidgetId);
                         submitButton.disabled = false;
                         submitButton.textContent = "Send Message";
                     }
@@ -102,6 +130,10 @@
                     <label for="message">Message <span class="required-mark" aria-hidden="true">*</span></label>
                     <textarea id="message" name="message" rows="5" placeholder="This is my message" class="p-2" required></textarea>
                 </div>
+                <!-- reCAPTCHA checkbox, rendered here by onRecaptchaLoad() -->
+                <div class="padd">
+                    <div id="recaptcha"></div>
+                </div>
                 <button id="submitButton" type="submit">Send Message</button>
                 <!-- role="status" makes screen readers announce the sent/error message without moving focus -->
                 <p id="formStatus" class="form-status" role="status"></p>
@@ -113,5 +145,7 @@
             <p class="footer-name">Maxim Myshchak</p>
             <p><small>Thank you for visiting my website!</small></p>
         </footer>
+        <!-- Loaded after onRecaptchaLoad is defined, as Google's docs recommend, to avoid a race condition -->
+        <script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit" async defer></script>
     </body>
 </html>
