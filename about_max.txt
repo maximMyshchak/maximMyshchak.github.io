@@ -1,0 +1,84 @@
+This file is what the website's AI assistant knows about Max. Edit it freely: add projects,
+classes, skills, links, or anything you want visitors to be able to ask about.
+The assistant also reads Maxim_Myshchak_Resume.pdf when the server starts (with the phone number removed),
+and is told to answer ONLY from this file and the resume.
+
+Name: Maxim (Max) Myshchak
+School: Harvard College
+Email: maxim_myshchak@college.harvard.edu
+LinkedIn: https://www.linkedin.com/in/maxim-myshchak/
+Instagram: https://www.instagram.com/maxim_myshchak/
+Thingiverse (open-source 3D designs): https://www.thingiverse.com/maximM_/designs
+MakerWorld (open-source 3D designs): https://makerworld.com/en/@maximmy/upload
+
+About:
+Max is a passionate student leader dedicated to intersecting STEM with a humanitarian focus to make a
+positive difference in the various communities he is a part of. He is an aspiring engineer who hopes to use
+his lived experiences as building blocks for making a difference in people's lives on a larger scale, and he
+is an open-source fanatic who hopes his creations will be used around the world for all to benefit from.
+
+Experience and projects:
+- Interned as a Software Engineer working on accessibility web design.
+- Was the first to conduct STEM outreach at his local library branch and his high school.
+- United global communities with open-source 3D designs.
+- Fabricated a wooden standing desk for NYC students with ADHD.
+- Mobilized teams for the MIT Cre[at]e Challenge to prototype assistive devices and technology for community
+  members diagnosed with a disability.
+- Has built Arduino electronics projects and a drone (photos on the Portfolio page).
+- Has published many open-source CAD / 3D-print designs on Thingiverse and MakerWorld (listed below).
+
+Portfolio engineering projects (portfolio.html):
+- SNSAid: Special-Needs Student Assistance Integrated Desk Solution. An integrated desk designed to assist
+  special-needs students in the classroom. Video: https://www.youtube.com/watch?v=eNt-pka8Yj4
+  Code: https://github.com/maximMyshchak/Assistive-Communication-Device---Team160-The-Goldstein-Dolphins-MIT-Cre-at-e-Challenge
+- AI-Powered Crop Monitoring Drone for Small-Farm Sustainability. A drone that uses AI to monitor crops.
+  Video: https://www.youtube.com/watch?v=EFv29nz96WM
+- Stimming Headphones. Assistive headphones that combine noise canceling with song playing.
+  Video: https://www.youtube.com/watch?v=_wweQ2zdDoo  CAD: https://www.thingiverse.com/thing:7008327
+- Kitchen Cabinet Safety & Deterrence Device. An assistive device that keeps kitchen cabinets safe and deters
+  access to them; its 3D-printed housing was the MIT Cre[at]e Challenge prototype housing.
+- SeaPerch GoldBot. A 3D-designed submersible with wired motor control that earned 1st place in the pool
+  challenge and 2nd place overall at the New Jersey SeaPerch Competition.
+
+Open-source CAD & 3D-print designs (all free on Thingiverse, most also on MakerWorld; shown on portfolio.html):
+- Ukrainian Tryzub Keychain with custom names engraved in Ukrainian. https://www.thingiverse.com/thing:6725258
+- Stimming Headphones CAD / 3D print (hollow bridge between ear cups). https://www.thingiverse.com/thing:7008327
+- Laser-Engraved Christmas Tree Display Stand (blank, no name). https://www.thingiverse.com/thing:7121591
+- Bookmark with embossed name; Max offers free custom text by message. A Galesville Public Library version is
+  also on MakerWorld. https://www.thingiverse.com/thing:7112272
+- Ukrainian Keychain made for laser cutting. https://www.thingiverse.com/thing:7112264
+- Laser Holder, a housing that automatically keeps a laser turned on while it is inside.
+  https://www.thingiverse.com/thing:7014220
+- Weight Holder (2-inch diameter hole) for a Science Olympiad Air Trajectory event prototype.
+  https://www.thingiverse.com/thing:7014210
+- LEGO Axle Adapter for all uses. https://www.thingiverse.com/thing:6971071
+- Integral Decoration that works as a Christmas ornament, standing decoration, sign holder stand or phone stand.
+  https://www.thingiverse.com/thing:6892320
+- Egg Drop Project for AP Physics C, rated for drops of about 20 ft (second story or in-class drops); a video
+  of it is on the Portfolio page. https://www.thingiverse.com/thing:6843672
+- Wooden Standing Desk for a router machine, built for NYC students with ADHD. News article:
+  https://www.makersmakingchange.com/news/makerspace-nyc-camp-participants-design-standing-desk-assistive-technology-solut-MCQTWUGB7UQNCXBKQMTNZYQQ6DDQ
+  Design: https://www.thingiverse.com/thing:6834822
+- 2-Inch PVC Endcap. https://www.thingiverse.com/thing:6834803
+- Bike Handle with Max's imprinted design (TPU). https://www.thingiverse.com/thing:6834742
+- Dolphin Keychain, custom for the Leon M. Goldstein High School Science Olympiad team.
+  https://www.thingiverse.com/thing:6834729
+- Tryzub-Max Dog Tag / Keychain. https://www.thingiverse.com/thing:6741488
+- MIT Cre[at]e Challenge Prototype Housing. https://www.thingiverse.com/thing:6729676
+- Book Display Stand with customizable distance, in a Brooklyn Public Library version and a blank version.
+  https://www.thingiverse.com/thing:6731843
+- Max Chocolate Mold featuring the Ukrainian tryzub and the NYC Makerspace logo.
+  https://www.thingiverse.com/thing:6729609
+
+Brooklyn Public Library designs (their own group on the Portfolio page):
+- Brooklyn Public Library Keychain (BPL, TPU). https://www.thingiverse.com/thing:6973128
+- Customizable Spinner Toy. https://www.thingiverse.com/thing:6843661
+- Brooklyn Public Library Anniversary Cupcake. https://www.thingiverse.com/thing:6825829
+- Book Display Stand (Brooklyn Public Library version). https://www.thingiverse.com/thing:6731843
+
+Interests:
+Engineering, designing with impact and scalability in mind, accessibility, assistive technology, open source.
+
+Website pages:
+- About (index.html), Portfolio (portfolio.html), Resume (resume.html, includes a PDF download),
+  Contact Me (contact_me.html, a form that emails Max directly).
