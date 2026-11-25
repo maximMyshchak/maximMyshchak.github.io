@@ -45,7 +45,8 @@ const PROJECTS = [
     },
     {
         title: "Kitchen Cabinet Safety & Deterrence Device",
-        alt: "",
+        image: "Kitchen-Cabinet-Project.jpg",
+        alt: "Kitchen Cabinet Safety & Deterrence Device",
         summary: "An assistive device that keeps kitchen cabinets safe and deters access to them.",
         links: [
             { label: "Project page", url: "https://sites.google.com/view/beaver-works-assistive-tech/showcase/2024-projects-section/2024-project-page-the-dolphins" },
@@ -53,30 +54,13 @@ const PROJECTS = [
     },
     {
         title: "SeaPerch GoldBot",
-        alt: "",
+        image: "SeaPerch.jpg",
+        alt: "Seaperch Competition Medals Photo",
         summary: "We 3D designed a submersible outfitted with electronics that let us control its motors through a wired controller. " +
             "This fully functional submersible took on underwater obstacle and retrieval tasks, earning 1st place in the pool challenge " +
             "and 2nd place overall at the New Jersey SeaPerch Competition.",
         links: [
             { label: "Project write-up", url: "https://docs.google.com/document/d/1hVE-YLqsZPjV8Ecgi_1TS3FZDwq-B315PYw8gRAgHjs/edit?usp=sharing" },
-        ],
-    },
-    {
-        title: "Arduino project",
-        image: "image_1.JPG",
-        alt: "Arduino electronics project",
-        summary: "An Arduino electronics project. See more of my work on LinkedIn.",
-        links: [
-            { label: "LinkedIn", url: "https://www.linkedin.com/in/maxim-myshchak/" },
-        ],
-    },
-    {
-        title: "Arduino project",
-        image: "image_2.jpg",
-        alt: "A second Arduino electronics project",
-        summary: "An Arduino electronics project. See more of my work on LinkedIn.",
-        links: [
-            { label: "LinkedIn", url: "https://www.linkedin.com/in/maxim-myshchak/" },
         ],
     },
 ];
