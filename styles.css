@@ -249,14 +249,29 @@ main{
     margin: 0;
 }
 
-.portfolio-grid figure{
+/* Each project card is a button that opens the project popup */
+.project-card{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     height: 100%;
     margin: 0;
     padding: 0.75rem;
+    text-align: left;
+    font: inherit;
+    color: inherit;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 0.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.project-card:hover,
+.project-card:focus-visible{
+    transform: translateY(-4px);
+    border-color: var(--brand-blue);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .portfolio-grid img{
@@ -267,9 +282,59 @@ main{
     border-radius: 0.25rem;
 }
 
-.portfolio-grid figcaption{
+/* Stand-in for a project that has no photo yet; same shape as the photos */
+.project-card-placeholder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4 / 3;
+    padding: 1rem;
+    text-align: center;
+    font-family: "Times New Roman";
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-dark));
+    border-radius: 0.25rem;
+}
+
+.project-card-title{
     margin-top: 0.5rem;
     font-weight: bold;
+}
+
+.project-card-hint{
+    margin-top: 0.25rem;
+    color: var(--brand-blue);   /* 5.4:1 on white */
+}
+.project-card:hover .project-card-hint{
+    text-decoration: underline;
+}
+
+/* Project popup */
+.project-modal-image{
+    width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 0.25rem;
+}
+
+.project-links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.modal .project-link{
+    display: inline-block;
+    background-color: var(--brand-blue);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+}
+.modal .project-link:hover{
+    background-color: var(--brand-blue-dark);
+    color: #fff;
 }
 
 .section{

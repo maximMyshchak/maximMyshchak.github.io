@@ -12,6 +12,7 @@
         <link href="styles.css" rel="stylesheet">
         <link href="chat.css" rel="stylesheet">
         <script src="chat.js" defer></script>
+        <script src="projects.js" defer></script>
         <title>Portfolio | Maxim Myshchak</title>
     </head>
     <body>
@@ -29,28 +30,27 @@
         <main id="main" tabindex="-1">
             <h1 class="page-title">Portfolio</h1>
             <!--Images of Projects-->
-            <p class="section">These photos are from my past engineering projects. There's much more to see on my LinkedIn!</p>
-            <ul class="portfolio-grid list-unstyled">
-                <li>
-                    <figure>
-                        <!-- TODO (Max): replace these alt texts with a specific description of what each photo shows -->
-                        <img src="image_1.JPG" alt="Arduino electronics project" loading="lazy">
-                        <figcaption>Arduino project</figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure>
-                        <img src="image_2.jpg" alt="A second Arduino electronics project" loading="lazy">
-                        <figcaption>Arduino project</figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure>
-                        <img src="image_3.JPG" alt="Drone built by Maxim" loading="lazy">
-                        <figcaption>Drone project</figcaption>
-                    </figure>
-                </li>
-            </ul>
+            <p class="section">These are some of my past engineering projects. Click a project to see its links. There's much more to see on my LinkedIn!</p>
+            <!-- The project cards are built by projects.js; add or edit projects there -->
+            <ul id="portfolio-grid" class="portfolio-grid list-unstyled"></ul>
+            <noscript><p class="section">Turn on JavaScript to see my projects.</p></noscript>
+
+            <!--Popup that opens when a project card is clicked (Bootstrap modal, filled in by projects.js)-->
+            <div class="modal fade" id="project-modal" tabindex="-1" aria-labelledby="project-modal-title" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title fs-4" id="project-modal-title"></h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img id="project-modal-image" class="project-modal-image" src="" alt="">
+                            <p id="project-modal-summary" class="mt-3"></p>
+                            <div id="project-modal-links" class="project-links"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!--Social Media Links-->
             <h2 class="page-title mt-5">More projects on Max's social media accounts</h2>
